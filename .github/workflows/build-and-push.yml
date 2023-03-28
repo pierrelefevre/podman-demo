@@ -14,9 +14,9 @@ jobs:
         ## Podman login!
         uses: redhat-actions/podman-login@v1
         with:
-          username: robot$devops-demo+ci
-          password: TXqUksEa24rJFvesoAQ4cUiHKCexg9jc
-          registry: registry.cloud.cbh.kth.se
+          username: pierrelf
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          registry: hub.docker.com
 
       ## Replace "docker/build-push-action" with this
       - name: Build image
