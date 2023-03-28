@@ -3,8 +3,8 @@ on:
   push:
 
 jobs:
-  login:
-    name: Log in to image registry
+  build:
+    name: Build and push
     runs-on: ubuntu-20.04
     steps:
       # Replace docker/login-action" with this
@@ -27,8 +27,7 @@ jobs:
         with:
           image: my-app
           tags: latest ${{ github.sha }}
-          containerfiles: |
-            ./hello-devops/Containerfile,
+          containerfiles: hello-devops/Containerfile,
 
       - name: Push to registry
         id: push-to-registry
