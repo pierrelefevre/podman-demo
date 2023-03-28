@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: filename
-        run: ls
+        run: ls /home/runner/work/podman-demo
 
       ## Replace "docker/build-push-action" with this
       - name: Build image
