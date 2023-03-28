@@ -27,7 +27,7 @@ jobs:
         with:
           image: my-app
           tags: latest ${{ github.sha }}
-          context: hello-devops
+          context: ../hello-devops
           containerfiles: |
             ./Containerfile
 
