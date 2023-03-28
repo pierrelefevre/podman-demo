@@ -1,0 +1,15 @@
+FROM nginx:1.22.1
+
+COPY ./app/index.html /usr/share/nginx/html
+
+COPY rick.mp4 /home/rick.mp4
+
+RUN apt-get update && apt-get install -y mplayer libcaca-dev libcaca0
+
+COPY nginx.conf /etc/nginx/
+
+#CACA_DRIVER=ncurses mplayer -quiet -vo caca /home/rick.mp4
+# append to bashrc 
+RUN echo 'CACA_DRIVER=ncurses mplayer -quiet -vo caca /home/rick.mp4' >> ~/.bashrc
+
+CMD ["nginx", "-g", "daemon off;"]

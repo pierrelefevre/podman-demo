@@ -1,0 +1,6 @@
+services:
+  hello-devops:
+    build: "hello-devops"
+    image: "devops:nginx"
+    ports:
+      - "8081:80"

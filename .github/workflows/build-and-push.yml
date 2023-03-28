@@ -1,0 +1,43 @@
+name: Build and push
+on:
+  push:
+
+jobs:
+  login:
+    name: Log in to image registry
+    runs-on: ubuntu-20.04
+    steps:
+      # Replace docker/login-action" with this
+      - name: Log in to registry
+        id: login-to-registry
+
+        ## Podman login!
+        uses: redhat-actions/podman-login@v1
+        with:
+          username: robot$devops-demo+ci
+          password: TXqUksEa24rJFvesoAQ4cUiHKCexg9jc
+          registry: registry.cloud.cbh.kth.se
+
+      ## Replace "docker/build-push-action" with this
+      - name: Build image
+        id: build-image
+
+        ## Uses buildah to build
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: my-app
+          tags: latest ${{ github.sha }}
+          containerfiles: |
+            ./Containerfile,
+
+      - name: Push to registry
+        id: push-to-registry
+
+        ## Redhat push
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build-image.outputs.image }}
+          tags: ${{ steps.build-image.outputs.tags }}
+          username: robot$devops-demo+ci
+          password: TXqUksEa24rJFvesoAQ4cUiHKCexg9jc
+          registry: registry.cloud.cbh.kth.se
