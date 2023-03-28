@@ -22,7 +22,7 @@ jobs:
         ## Uses buildah to build
         uses: redhat-actions/buildah-build@v2
         with:
-          image: my-app
+          image: devops-demo/my-app
           tags: latest ${{ github.sha }}
           context: ./hello-devops/
           containerfiles: |
