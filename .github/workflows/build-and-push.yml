@@ -9,8 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: filename
+      - name: ls project
         run: ls -la /home/runner/work/podman-demo/podman-demo
+
+      - name: ls project
+        run: ls -la /home/runner/work/podman-demo/podman-demo/hello-devops
 
       ## Replace "docker/build-push-action" with this
       - name: Build image
