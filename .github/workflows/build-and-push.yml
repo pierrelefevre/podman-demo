@@ -28,7 +28,7 @@ jobs:
           image: my-app
           tags: latest ${{ github.sha }}
           containerfiles: |
-            ./Containerfile,
+            ./hello-devops/Containerfile,
 
       - name: Push to registry
         id: push-to-registry
