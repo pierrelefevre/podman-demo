@@ -27,7 +27,8 @@ jobs:
         with:
           image: my-app
           tags: latest ${{ github.sha }}
-          containerfiles: ../hello-devops/Containerfile,
+          context: hello-devops
+          containerfiles: Containerfile
 
       - name: Push to registry
         id: push-to-registry
