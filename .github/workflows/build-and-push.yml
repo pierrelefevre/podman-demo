@@ -12,7 +12,7 @@ jobs:
       - name: ls project
         run: ls -la /home/runner/work/podman-demo/podman-demo
 
-      - name: ls project
+      - name: ls hello-devops
         run: ls -la /home/runner/work/podman-demo/podman-demo/hello-devops
 
       ## Replace "docker/build-push-action" with this
@@ -24,9 +24,8 @@ jobs:
         with:
           image: my-app
           tags: latest ${{ github.sha }}
-          context: hello-devops
           containerfiles: |
-            ./Containerfile
+            ./hello-devops/Containerfile
 
       - name: Push to registry
         id: push-to-registry
