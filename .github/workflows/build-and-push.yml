@@ -7,12 +7,11 @@ jobs:
     name: Build and push
     runs-on: ubuntu-20.04
     steps:
-
       - name: filename
         run: ls
 
       ## Replace "docker/build-push-action" with this
-        name: Build image
+      - name: Build image
         id: build-image
 
         ## Uses buildah to build
