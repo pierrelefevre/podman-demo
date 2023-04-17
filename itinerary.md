@@ -19,8 +19,6 @@ podman exec -it CONTAINER-ID /bin/bash
 
 *Ricky!*
 
-**Check your browser at localhost:8081**
-
 ## K8s resources
 **Show the deployment.yaml**
 
